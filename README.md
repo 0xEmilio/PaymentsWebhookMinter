@@ -16,16 +16,21 @@ Sure, here's a revised version of the README:
    node webhook.js
    ```
 3. Expose the local server to the internet:
+   
+   tip: You can use [ngrok](https://ngrok.com/) for locally testing webhooks, enabling it on port 3000 is seen below. 
+
    ```bash
    ngrok http 3000
    ```
 
 ### Crossmint Setup
-1. Create a new collection.
-2. Set up webhooks in the Crossmint console, using the `/webhook` path.
+1. Create or import a new collection using the Crossmint developer console.
+2. Set up webhooks in the Crossmint console, using the `<path>/webhook` path. You will need to listen to `purchase.succeeded` 
+
 
 ### Blockchain Configuration
 1. Update the `.env` file with your private key and `sha256`.
+2. Update the associated <constract:ABI> mappings in `blockchain.js`
 
 ## Considerations
 1. **Wallet Address**: We mint to the `walletAddress` specified in the webhook. Custodial users might face issues exporting tokens.
@@ -34,6 +39,6 @@ Sure, here's a revised version of the README:
 4. **Escrow**: Escrow should be disabled.
 
 ## Additional Information
-I have included a Solidity file that can be deployed and used for testing purposes.
+I have included a Solidity file that can be deployed and used for testing purposes. You can compile/deploy using RemixIDE or Hardhat.
 
 ---
